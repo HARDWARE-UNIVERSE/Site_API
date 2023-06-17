@@ -12,13 +12,31 @@
 </head>
 
 <body>
+    <div class="header" id="header">
+        <div class="container">
+            <ul class="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Sobre</a></li>
+            </ul>
+            <img class="logo" src="./assets/img/Logo de Estúdio de beleza Rosa (4).png">
+            <ul class="navbar">
+                <li><a href="./dashboard/dashboard.html">Perfil</a></li>
+                <li><a href="clube.html" class="responsivo" onclick="clickClube()">Jogo</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+
     <div id="all" style="display: block;">
         <div class="all-quiz">
-            <div class="lateral">
+            <!-- <div class="lateral">
+                <a href="index.html"> <img class="icon2" src="assets/img/Logo_de_Estúdio_de_beleza_Rosa__4_-removebg-preview.png" alt=""></a>
                 <a href="index.html"> <img class="icon" src="assets/img/botao-de-inicio (1).png" alt=""></a>
                 <a href="./dashboard/dashboard.html"> <img class="icon" src="assets/img/perfil-de-usuario (1).png"
                         alt=""></a>
-            </div>
+            </div> -->
             <!-- <div class="quiz-personalidade" id="comeco1">
             <div class="quiz-sobre">
                 <div class="div-img1">
@@ -31,10 +49,11 @@
                 </div>
             </div>
         </div> -->
+      
             <div class="quiz-sobre">
                 <div class="div-img1">
-                    <h1>O quando você conhece sobre Hardware?</h1>
-                    <img class="img1" src="./assets/img/banner1.jpg" alt="">
+                 <img class="img1" src="./assets/img/img10.jpg" alt="">
+                    <!-- <h1>O Quando você conhece sobre Hardware?</h1> -->
                 </div>
                 <div class="text-box">
                     <button onclick="comecar()" id="comeco" class="botao">Começar Quiz</button>
@@ -65,6 +84,7 @@
 
     </div>
 
+    <img src="" alt="">
 
     <footer>
         <p>
@@ -97,21 +117,21 @@
 
 
     var img = ['<img  class = "img-Vetor" src="./assets/img/banner1.jpg" alt="">',
-        '<img class = "img-Vetor" src="assets/img/perso/feyre e rhys 1.jpg" alt="">',
-        '<img class = "img-Vetor" src="assets/img/prythian.jpg" alt="">',
-        '<img class = "img-Vetor" src="assets/img/perso/lucian.jpg" alt="">',
-        '<img class = "img-Vetor" src="assets/img/ultimaPergunta.jpg" alt="">',
-        '<img class = "img-Vetor" src="assets/img/perso/lucian.jpg" alt="">',
-        '<img class = "img-Vetor" src="assets/img/perso/lucian.jpg" alt="">',
-        '<img class = "img-Vetor" src="assets/img/perso/lucian.jpg" alt="">',
-        '<img class = "img-Vetor" src="assets/img/perso/lucian.jpg" alt="">',
-        '<img class = "img-Vetor" src="assets/img/perso/lucian.jpg" alt="">',
-        '<img class = "img-Vetor" src="assets/img/perso/lucian.jpg" alt="">',
-        '<img class = "img-Vetor" src="assets/img/perso/lucian.jpg" alt="">',
-        '<img class = "img-Vetor" src="assets/img/perso/lucian.jpg" alt="">',
-        '<img class = "img-Vetor" src="assets/img/perso/lucian.jpg" alt="">',
-        '<img class = "img-Vetor" src="assets/img/perso/lucian.jpg" alt="">',
-        '<img class = "img-Vetor" src="assets/img/perso/lucian.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/img1.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/img2.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/img3.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/img4.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/img7.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/img8.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/pexels-pok-rie-1432675.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/img9.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/img10.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/img5.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/img6.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/intel.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/Intel2.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/img13.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/img14.jpg" alt="">',
 
 
     ];
@@ -127,7 +147,7 @@
 
     function comecar() {
         all.style.display = 'none';
-        // comeco1.style.display = 'none';
+        header.style.display = 'none';
         comeco.style.display = 'none';
         quiz.style.display = 'block';
 
@@ -278,10 +298,10 @@
         if (contador == 12) {
 
 
-            A.innerHTML = `Aleksander`;
-            B.innerHTML = `Adam`;
-            C.innerHTML = `Andrak`;
-            D.innerHTML = ``;
+            A.innerHTML = `I7`;
+            B.innerHTML = `I3`;
+            C.innerHTML = `AMD RYZEN`;
+            D.innerHTML = `I5`;
 
 
 
@@ -289,10 +309,10 @@
         if (contador == 13) {
 
 
-            A.innerHTML = `I7`;
-            B.innerHTML = `I3`;
+            A.innerHTML = `I3`;
+            B.innerHTML = `I5`;
             C.innerHTML = `I9`;
-            D.innerHTML = `I5`;
+            D.innerHTML = `I7`;
 
 
 
@@ -300,10 +320,10 @@
         if (contador == 14) {
 
 
-            A.innerHTML = `I3`;
-            B.innerHTML = `I5`;
-            C.innerHTML = `I7`;
-            D.innerHTML = `I11`;
+            A.innerHTML = `Quad Core`;
+            B.innerHTML = `Duas Cores`;
+            C.innerHTML = `Dual Core`;
+            D.innerHTML = `Qual Core`;
 
 
 
@@ -311,10 +331,10 @@
         if (contador == 15) {
 
 
-            A.innerHTML = `Aleksander`;
-            B.innerHTML = `Dual Core`;
-            C.innerHTML = `Quad Core`;
-            D.innerHTML = `Andras`;
+            A.innerHTML = `Duas Core`;
+            B.innerHTML = `Quad Core`;
+            C.innerHTML = `Dual Core`;
+            D.innerHTML = `Quatro Cores`;
 
 
 
