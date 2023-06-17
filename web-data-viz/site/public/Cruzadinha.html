@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+<link rel="shortcut icon" href="./assets/img/Logo_de_Estúdio_de_beleza_Rosa__4_-removebg-preview.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css/Cruzadinha.css">
+
+</head>
+
+<body>
+    <div id="all" style="display: block;">
+        <div class="all-quiz">
+            <div class="lateral">
+                <a href="index.html"> <img class="icon" src="assets/img/botao-de-inicio (1).png" alt=""></a>
+                <a href="./dashboard/dashboard.html"> <img class="icon" src="assets/img/perfil-de-usuario (1).png"
+                        alt=""></a>
+            </div>
+            <!-- <div class="quiz-personalidade" id="comeco1">
+            <div class="quiz-sobre">
+                <div class="div-img1">
+                    <h1>Quem é você no Círculo Intimo?</h1>
+                    <img class="img1" src="./assets/img/cirulo intimo2.jpg" alt="">
+                </div>
+                <div class="text-box">
+                   <a href="quiz-personalidade.html"> <button  class="botao">Começar Quiz de personalidade</button></a>
+    
+                </div>
+            </div>
+        </div> -->
+            <div class="quiz-sobre">
+                <div class="div-img1">
+                    <h1>O quando você conhece sobre Hardware?</h1>
+                    <img class="img1" src="./assets/img/banner1.jpg" alt="">
+                </div>
+                <div class="text-box">
+                    <button onclick="comecar()" id="comeco" class="botao">Começar Quiz</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="quiz" style="display: none;">
+        <div class="quiz-1">
+            <div id="imgV"></div>
+            <div id="div_perguntas" style="color: white;"></div><br>
+
+            <button id="A" class="botaoQuiz" style="background-color: white;" onclick="ver(this.name, this.id) ; "
+                name="A">CPU</button><br>
+            <button id="B" class="botaoQuiz" style="background-color: white;" onclick="ver(this.name, this.id) ;"
+                name="B">ULA</button><br>
+            <button id="C" class="botaoQuiz" style="background-color: white;" onclick="ver(this.name, this.id) ;"
+                name="C">CMD</button><br>
+            <button id="D" class="botaoQuiz" style="background-color: white;" onclick="ver(this.name, this.id) ;"
+                name="D">ROM</button><br>
+
+
+            <div id="msg" style="color: white;"></div>
+        </div>
+
+
+
+    </div>
+
+
+    <footer>
+        <p>
+            Copyright © Maria, Gyulia e Gabriella <3 | Todos os direitos reservado. </p>
+    </footer>
+</body>
+
+</html>
+<script>
+
+    var contador = 0;
+    var perguntas = ['Qual é a sigla que representa a parte da arquitetura computacional responsável por processar todas as principais operações de funcionamento de um computador?',
+        'Qual a sigla que representa um circuito combinatório responsável pela execução de somas, subtrações e funções lógicas, em um sistema digital?',
+        'Qual é o nome da memória dentro da própria CPU, onde os dados que foram buscados na memória são armazenados, possuem a finalidade de reter a curto prazo um conjunto de bits e estão no topo da hierarquia de memória?',
+        'Qual a sigla da memória responsável por dar mais agilidade e velocidade no funcionamento geral do sistema, além de ser um espaço temporário de informações do sistema operacional e de aplicativos em uso?',
+        'Qual a sigla do tipo de memória que permite apenas a leitura de dados e não a escrita?',
+        'Qual o nome do tipo de memória capaz de armazenar as informações, para serem recuperadas e utilizadas posteriormente, mesmo depois de a alimentação ter sido interrompida?',
+        'Qual o nome do tipo de memória muito mais rápida do que uma tradicional memória EEPROM porque, ao invés de apagar um byte por vez, apaga um bloco ou o chip inteiro, geralmente de 512 bytes, em vez de 1 byte por vez?',
+        'Qual o nome do tipo de memória que tem como função armazenar grandes quantidades de informações, as quais não são perdidas quando desligamos o equipamento?',
+        'Qual a sigla que representa o método que permite que um dispositivo de entrada e saída envie ou receba dados diretamente da memória principal, sem depender da CPU?',
+        'Qual é a sigla que representa um mecanismo fundamental para permitir à CPU acessar memórias e/ou periféricos externos?',
+        'Qual o nome em inglês do barramento de computador usado para especificar um endereço físico na memória',
+        'Qual o nome em inglês do barramento usado para transmitir dados entre componentes?',
+        'Qual o processador tem quatro núcleos físicos e quatro threads, frequências de clock menores e cache menor, porém oferece um desempenho sólido em jogos, navegação web e tarefas básicas?',
+        'Qual o processador tem quatro ou mais núcleos físicos e oito ou mais threads, permitindo um melhor desempenho multitarefa e capacidade de processamento, além de uma maior frequência clock, um cache maior e é útil para ser usado para jogos de alta performance, criação de conteúdo, edição de arquivos e aplicativos especializados?',
+        'Qual termo representa um processador de dois núcleos?',
+        'Qual termo que representa um processador de quatro núcleos?'];
+
+
+
+
+    var img = ['<img  class = "img-Vetor" src="./assets/img/banner1.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/perso/feyre e rhys 1.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/prythian.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/perso/lucian.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/ultimaPergunta.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/perso/lucian.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/perso/lucian.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/perso/lucian.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/perso/lucian.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/perso/lucian.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/perso/lucian.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/perso/lucian.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/perso/lucian.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/perso/lucian.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/perso/lucian.jpg" alt="">',
+        '<img class = "img-Vetor" src="assets/img/perso/lucian.jpg" alt="">',
+
+
+    ];
+
+    var respostas = ['A', 'C', 'B', 'A', 'D','C','D','A','A','B','A','C','D','D','C','B'];
+
+
+    var acerto = 0;
+    var erro = 0;
+
+    var cont = 0;
+
+
+    function comecar() {
+        all.style.display = 'none';
+        // comeco1.style.display = 'none';
+        comeco.style.display = 'none';
+        quiz.style.display = 'block';
+
+
+        div_perguntas.innerHTML = perguntas[contador];
+        imgV.innerHTML = img[contador];
+        limpar()
+    }
+
+
+
+
+    function terminar() {
+
+        if (contador == perguntas.length - 1) {
+            // contador = 0;
+
+            cadastrarQuiz()
+        } else {
+            contador++;
+            cont++;
+        }
+        if (contador < perguntas.length) {
+            div_perguntas.innerHTML = `${perguntas[contador]}`
+            imgV.innerHTML = img[contador];
+
+        }
+
+
+        if (contador == 1) {
+
+
+            A.innerHTML = `CS`;
+            B.innerHTML = `RAM`;
+            C.innerHTML = `ULA`;
+            D.innerHTML = `ROM`;
+
+        }
+
+        if (contador == 2) {
+
+
+            A.innerHTML = `Registratora`;
+            B.innerHTML = `Registradores`;
+            C.innerHTML = `Registrando`;
+            D.innerHTML = `RAM`;
+
+        }
+        if (contador == 3) {
+
+
+            A.innerHTML = `RAM`;
+            B.innerHTML = `ROM`;
+            C.innerHTML = `Eprom`;
+            D.innerHTML = `Flash`;
+
+        }
+
+        if (contador == 4) {
+
+
+            A.innerHTML = `Flash`;
+            B.innerHTML = `RAM`;
+            C.innerHTML = `Memória de Massa`;
+            D.innerHTML = `ROM`;
+
+
+
+        }
+
+        if (contador == 5) {
+
+
+            A.innerHTML = `Registradores`;
+            B.innerHTML = `CPU`;
+            C.innerHTML = `Eprom`;
+            D.innerHTML = `Memória de Massa`;
+
+
+
+        }
+        if (contador == 6) {
+
+
+            A.innerHTML = `Batman`;
+            B.innerHTML = `Mulher Maravilha`;
+            C.innerHTML = `Supermen`;
+            D.innerHTML = `Flash`;
+
+
+
+        }
+        if (contador == 7) {
+
+
+            A.innerHTML = `Memória de Massa`;
+            B.innerHTML = `Resgistradores`;
+            C.innerHTML = `Adress Bus`;
+            D.innerHTML = `DMA`;
+
+
+
+        }
+        if (contador == 8) {
+
+
+            A.innerHTML = `DMA`;
+            B.innerHTML = `ULA`;
+            C.innerHTML = `DNA`;
+            D.innerHTML = `CPU`;
+
+
+
+        }
+        if (contador == 9) {
+
+
+            A.innerHTML = `DMA`;
+            B.innerHTML = `CS`;
+            C.innerHTML = `ROM`;
+            D.innerHTML = `I7`;
+
+
+
+        }
+        if (contador == 10) {
+
+
+            A.innerHTML = `Adress Bus`;
+            B.innerHTML = `Adress Buzzi`;
+            C.innerHTML = `Adres Bus`;
+            D.innerHTML = `Adrezz Bus`;
+
+
+
+        }
+        if (contador == 11) {
+
+
+            A.innerHTML = `Date Bus`;
+            B.innerHTML = `Data Buz`;
+            C.innerHTML = `Data Bus`;
+            D.innerHTML = `Date Buzzi`;
+
+
+
+        }
+        if (contador == 12) {
+
+
+            A.innerHTML = `Aleksander`;
+            B.innerHTML = `Adam`;
+            C.innerHTML = `Andrak`;
+            D.innerHTML = ``;
+
+
+
+        }
+        if (contador == 13) {
+
+
+            A.innerHTML = `I7`;
+            B.innerHTML = `I3`;
+            C.innerHTML = `I9`;
+            D.innerHTML = `I5`;
+
+
+
+        }
+        if (contador == 14) {
+
+
+            A.innerHTML = `I3`;
+            B.innerHTML = `I5`;
+            C.innerHTML = `I7`;
+            D.innerHTML = `I11`;
+
+
+
+        }
+        if (contador == 15) {
+
+
+            A.innerHTML = `Aleksander`;
+            B.innerHTML = `Dual Core`;
+            C.innerHTML = `Quad Core`;
+            D.innerHTML = `Andras`;
+
+
+
+        }
+        
+
+
+
+    }
+
+
+    function ver(nomeBotão, idBotao) {
+
+
+        if (cont == contador) {
+
+
+            if (respostas[contador] == nomeBotão) {
+                acerto++
+
+                console.log(acerto)
+                console.log(idBotao)
+
+                document.getElementById(idBotao).style.backgroundColor = 'green'
+
+                // changeColor('green');
+                // bgChange() 
+
+                setTimeout(() => {
+                    terminar()
+                    document.getElementById(idBotao).style.backgroundColor = 'white'
+                    // changeColor('white');
+
+                }, 1000)
+
+            }
+            else {
+                erro++
+                console.log(erro)
+                document.getElementById(idBotao).style.backgroundColor = 'red'
+
+
+
+                setTimeout(() => {
+                    terminar()
+                    document.getElementById(idBotao).style.backgroundColor = 'white'
+                }, 1000)
+
+            }
+        }
+    }
+
+
+
+
+
+
+
+    function cadastrarQuiz() {
+        // aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+
+        var errosVar = Number(erro);
+        var acertosVar = Number(acerto);
+        var fkUsuarioVar = Number(sessionStorage.getItem('ID_USUARIO'))
+
+        console.log(acertosVar)
+        console.log(errosVar)
+        console.log(fkUsuarioVar)
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrarQuiz", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                errosServer: errosVar,
+                acertosServer: acertosVar,
+                fkUsuarioServer: fkUsuarioVar
+
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                console.log('responta ok')
+
+                setTimeout(() => {
+                    window.location = "./dashboard/dashboard.html";
+                }, "2000")
+
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+                console.log(' throw ("Houve um erro ao tentar realizar o cadastro!");')
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+
+        });
+
+        return false;
+    }
+
+
+    function limpar() {
+        // aguardar();
+
+        //Recupere o valor da nova input pelo nome do id
+        // Agora vá para o método fetch logo abaixo
+
+        var fkUsuarioVar = Number(sessionStorage.getItem('ID_USUARIO'))
+
+
+        console.log(fkUsuarioVar)
+        // Enviando o valor da nova input
+        fetch("/usuarios/limpar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                fkUsuarioServer: fkUsuarioVar
+
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                console.log('responta ok')
+
+                // setTimeout(() => {
+                //     window.location = "./dashboard/dashboard.html";
+                // }, "2000")
+
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+                console.log(' throw ("Houve um erro ao tentar realizar o cadastro!");')
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+
+        });
+
+        return false;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
