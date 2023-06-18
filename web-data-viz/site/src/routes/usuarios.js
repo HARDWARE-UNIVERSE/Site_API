@@ -8,6 +8,10 @@ var usuarioController = require("../controllers/usuarioController");
 //     usuarioController.limpar(req, res);
 // })
 
+router.post("/autenticar", function (req, res) {
+    usuarioController.entrar(req, res);
+});
+
 router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 })

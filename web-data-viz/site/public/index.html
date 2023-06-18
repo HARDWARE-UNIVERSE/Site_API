@@ -90,9 +90,9 @@
             <div class="texto-login">
                 <h1>Login</h1>
                 <p>E-mail:</p>
-                <input id="email_input" class="input_number" type="text" placeholder="ex: hardware@universe.com">
+                <input id="email_input_login" class="input_number" type="text" placeholder="ex: hardware@universe.com">
                 <p>Senha:</p>
-                <input id="senha_input" class="input_number" type="password" placeholder="Insira sua senha">
+                <input id="senha_input_login" class="input_number" type="password" placeholder="Insira sua senha">
                 <div class="texto1">
                     <span>Não tem uma conta? <button class="botaoH" onclick="cadastro()">Cadastre-se</button></span>
                     <div class="bot">
@@ -117,7 +117,7 @@
     </div>
 
     <div class="copyRight">
-        <h4> Copyright © 2023 Gabriella, Gyulia e Maria Paula </h4>
+        <h4> Copyright © Maria, Gyulia e Gabriella <3 | Todos os direitos reservados. </h4>
     </div>
 
 
@@ -193,5 +193,70 @@
             // finalizarAguardar();
             return false;
         });
+    }
+
+    function entrar() {
+        // aguardar();
+
+        var emailLVar = email_input_login.value;
+        var senhaLVar = senha_input_login.value;
+
+        if (emailLVar == "" || senhaLVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            // finalizarAguardar();
+            // return false;
+        }
+        // else {
+            // setInterval(sumirMensagem, 5000)
+        // }
+
+        console.log("FORM LOGIN: ", emailLVar);
+        console.log("FORM SENHA: ", senhaLVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailLServer: emailLVar,
+                senhaLServer: senhaLVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+
+                    setTimeout(function () {
+                        window.location = "./Cruzadinha.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                alert("Houve um erro ao tentar realizar o login, verifique os dados inseridos!");
+
+                resposta.text().then(texto => {
+                    // console.error(texto);
+                    // finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
     }
 </script>

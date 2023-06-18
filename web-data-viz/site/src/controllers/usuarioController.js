@@ -51,6 +51,42 @@ function autenticar(req, res) {
 
 }
 
+function entrar(req, res) {
+    var emailL = req.body.emailLServer;
+    var senhaL = req.body.senhaLServer;
+
+    if (emailL == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    } else if (senhaL == undefined) {
+        res.status(400).send("Sua senha está indefinida!");
+    } else {
+        
+        usuarioModel.entrar(emailL, senhaL)
+            .then(
+                function (resultado) {
+                    console.log(`\nResultados encontrados: ${resultado.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+
+                    if (resultado.length == 1) {
+                        console.log(resultado);
+                        res.json(resultado[0]);
+                    } else if (resultado.length == 0) {
+                        res.status(403).send("Email e/ou senha inválido(s)");
+                    } else {
+                        res.status(403).send("Mais de um usuário com o mesmo login e senha!");
+                    }
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+}
+
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nome = req.body.nomeServer;
@@ -87,5 +123,6 @@ function cadastrar(req, res) {
 
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar, 
+    entrar
 }
