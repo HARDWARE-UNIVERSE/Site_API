@@ -399,6 +399,9 @@
         //Recupere o valor da nova input pelo nome do id
         // Agora vá para o método fetch logo abaixo
 
+        sessionStorage.ERRO = Number (erro);
+        sessionStorage.ACERTO = Number (acerto);
+
         var errosVar = Number(erro);
         var acertosVar = Number(acerto);
         var fkUsuarioVar = Number(sessionStorage.getItem('ID_USUARIO'))

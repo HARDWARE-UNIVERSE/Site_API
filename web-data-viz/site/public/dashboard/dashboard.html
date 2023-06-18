@@ -32,7 +32,7 @@
         <span id="tituloAquario1">SEU RESULTADO</span>
     </h3>
     <div class="graph">
-        <canvas id="grafico_personalidade" style="z-index: 9990;"></canvas>
+        <canvas id="grafico" style="z-index: 9990;"></canvas>
     </div>
 
 
@@ -55,38 +55,23 @@
 //     '<img class="img-Vetor" src="../assets/img/perso/elain.png" alt="">'
 // ]
 //    m_usuario.innerHTML = sessionStorage.EMAIL_USUARIO;
-b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+// b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 // perso.innerHTML = sessionStorage.NOME_PERSONAGEM;
 
 
-// var personagem = sessionStorage.NOME_PERSONAGEM;
-// if (personagem == 'Rhysand') {
-//     img.innerHTML = persos[0]
-// }
-// else if (personagem == ' Feyre Archeron') {
-//     img.innerHTML = persos[1]
-// }
-// else if (personagem == ' Morrigan') {
-//     img.innerHTML = persos[2]
-// }
-// else if (personagem == ' Amren') {
-//     img.innerHTML = persos[3]
-// }
-// else if (personagem == 'Azriel') {
-//     img.innerHTML = persos[4]
-// }
-// else if (personagem == 'Cassian') {
-//     img.innerHTML = persos[5]
-// }
-// else if (personagem == 'Nestha Archeron') {
-//     img.innerHTML = persos[6]
-// }
-// else {
-//     img.innerHTML = persos[7]
-// }
+
+var acerto = sessionStorage.ACERTO;
 
 
-
+ if (acerto >= 0 && acerto <= 5) {
+    alert('Você tem que estudar mais')
+}
+else if (acerto <= 10) {
+    alert('Você está mediando mais estude mais')
+}
+else if (acerto <= 15) {
+    alert('Você é muito bom')
+}
 
 
 
@@ -150,13 +135,13 @@ function exibirAquario2(idUsuario) {
 //     Para ajustar o "select", ajuste o comando sql em src/models
 function obterDadosGrafico2(idUsuario) {
 
-    alterarTitulo2(idUsuario)
+    // alterarTitulo2(idUsuario)
 
     if (proximaAtualizacao != undefined) {
         clearTimeout(proximaAtualizacao);
     }
 
-    fetch(`/medidas/ultimas/perso/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+    fetch(`/medidas/ultimas/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
         if (response.ok) {
             response.json().then(function (resposta) {
                 console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
