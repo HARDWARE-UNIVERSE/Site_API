@@ -27,6 +27,31 @@ body {
     background-image: url(../assets/img/fundo.jpg);
 }
 
+.containerFim{
+    display: flex;
+    width: 80%;
+    margin-left: 20%; 
+    flex-direction: row;
+    background-image: url(../assets/img/fundo\ -\ Copia.jpg);
+    background-repeat: no-repeat;
+}
+
+.containerFim .texto-banner{
+    margin-top: 10%;
+    width: 45%;
+}
+
+.copyRight{
+    background-color: #8c66d2;
+}
+
+.copyRight h4{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    font-weight:400;
+}
+
 
 
 /* INICIO DO HEADER*/
@@ -272,4 +297,270 @@ body {
     margin-top: 50px;
     margin-right: 60px;
 }
+/*  */
+
+
+.input_number{ 
+    /*estilização de TODOS os inputs dos formularios do site*/
+    width: 80%;
+    font-family: 'Poppins', sans-serif;
+    height: 30px;
+    border-style: none;
+    background-color: #40095a;
+    border-radius: 5px;
+    color: #ffffff;
+} 
+
+.texto-login { /*Formulario de login*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*alinhamento horizontal*/
+    align-items: center; /*alinhamento vertical*/
+    margin: auto;
+    width: 70%;
+    height: 90%;
+}
+
+.containerlogin span { /* Frase "Não tem conta? Cadastre-se"*/
+    width: 70%;
+    font-size: 12px;
+}
+
+
+.formLogin{ /*Card da area de login*/
+    margin: 150px 25% 40px 25%; 
+    width: 50%;
+    border-radius: 20px;
+    height: fit-content; /*o tamanho do card é suficiente para caber o conteudo*/
+    background-color: #CAA9C6;
+}
+
+::placeholder{
+    color: white;
+}
+
+.containerlogin { /*conteudo do formulário de login */
+    display: flex;
+    justify-content: space-around; /* os itens são distribuídos igualmente no espaço disponível ao redor deles */
+}
+
+.formLogin .containerlogin h1{ /*Estilizaçao do titulo*/
+    color: #40095a;
+    margin-top: 5%;
+}
+
+.formLogin .containerlogin p{ /*Estilização dos textos*/
+    align-self: self-start; /*alinha apenas este elemento para o inicio*/
+    margin-left: 10%;
+}
+
+.formLogin .containerlogin a{ /*Estilização dos links*/
+   color: #ffffff;
+    
+}
+
+
+
+
+button{
+    /*estilização do botão da página da calculadora*/
+    background-color: #40095a;
+    color: #ffffff;
+    width: 170px;
+    height: 50px;
+    border-style: none; /*tira a estilização automatica do botão do html*/
+    border-radius: 10px;
+    cursor: pointer; /*muda a imagem do cursor quando passar pelo botão*/
+    margin: 10px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+}
+
+.botao-banner{ /*Botão de entrar*/
+    background-color: #40095a;
+    color: #ffffff;
+    width: 220px;
+    height: 50px;
+    border-style: none; /*tira a estilização automatica do botão do html*/
+    border-radius: 10px;
+    cursor: pointer; /*muda a imagem do cursor quando passar pelo botão*/
+    margin: 10px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 10%;
+}
+
+.botao-banner2{ /*Botão de voltar para home*/
+    background-color: #40095a;
+    color: #ffffff;
+    width: 220px;
+    height: 50px;
+    border-style: none; /*tira a estilização automatica do botão do html*/
+    border-radius: 10px;
+    cursor: pointer; /*muda a imagem do cursor quando passar pelo botão*/
+    margin: 10px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.botao-banner2 a{ 
+    color: white;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.botaoH{
+    font-size: 12px;
+    width: auto;
+    background-color: #CAA9C6;
+
+}
+
+
+input{
+    color: #ffffff;
+}
+/* FIM DO CONTAINER DO LOGIN */
+
+
+.input_number{ 
+    /*estilização de TODOS os inputs dos formularios do site*/
+    width: 80%;
+    font-family: 'Poppins', sans-serif;
+    height: 30px;
+    border-style: none;
+    background-color: #40095a;
+    border-radius: 5px;
+    color: #ffffff;
+} 
+
+.texto-cadastro { /*Formulario de login*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*alinhamento horizontal*/
+    align-items: center; /*alinhamento vertical*/
+    margin: auto;
+    width: 70%;
+    height: 90%;
+}
+
+.containerCadastro span { /* Frase "Não tem conta? Cadastre-se"*/
+    width: 70%;
+    font-size: 12px;
+}
+
+
+.formCadastro{ /*Card da area de login*/
+    margin: 150px 25% 40px 25%; 
+    width: 50%;
+    border-radius: 20px;
+    height: fit-content; /*o tamanho do card é suficiente para caber o conteudo*/
+    background-color: #CAA9C6;
+}
+
+::placeholder{
+    color: white;
+}
+
+.containerCadastro { /*conteudo do formulário de login */
+    display: flex;
+    justify-content: space-around; /* os itens são distribuídos igualmente no espaço disponível ao redor deles */
+}
+
+.formCadastro .containerCadastro h1{ /*Estilizaçao do titulo*/
+    color: #40095a;
+    margin-top: 5%;
+}
+
+.formCadastro .containerCadastro p{ /*Estilização dos textos*/
+    align-self: self-start; /*alinha apenas este elemento para o inicio*/
+    margin-left: 10%;
+}
+
+.formCadastro .containerCadastro a{ /*Estilização dos links*/
+   color: #ffffff;
+    
+}
+
+
+
+
+button{
+    /*estilização do botão da página da calculadora*/
+    background-color: #40095a;
+    color: #ffffff;
+    width: 170px;
+    height: 50px;
+    border-style: none; /*tira a estilização automatica do botão do html*/
+    border-radius: 10px;
+    cursor: pointer; /*muda a imagem do cursor quando passar pelo botão*/
+    margin: 10px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+}
+
+.botao-banner{ /*Botão de entrar*/
+    background-color: #40095a;
+    color: #ffffff;
+    width: 220px;
+    height: 50px;
+    border-style: none; /*tira a estilização automatica do botão do html*/
+    border-radius: 10px;
+    cursor: pointer; /*muda a imagem do cursor quando passar pelo botão*/
+    margin: 10px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 10%;
+}
+
+.botao-banner2{ /*Botão de voltar para home*/
+    background-color: #40095a;
+    color: #ffffff;
+    width: 220px;
+    height: 50px;
+    border-style: none; /*tira a estilização automatica do botão do html*/
+    border-radius: 10px;
+    cursor: pointer; /*muda a imagem do cursor quando passar pelo botão*/
+    margin: 10px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.botao-banner2 a{ 
+    color: white;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.botaoH{
+    font-size: 12px;
+    width: auto;
+    background-color: #CAA9C6;
+
+}
+
+
+input{
+    color: #ffffff;
+}
+/* FIM DO CONTAINER DO LOGIN */
+
+
+
+
+
+
+
+
+
 
