@@ -6,13 +6,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaTech | Dashboards</title>
+    <title>Hardware Universe | Dashboards</title>
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/dashboards.css">
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
-    <link rel="shortcut icon" href="./assets/img/Logo_de_Estúdio_de_beleza_Rosa__4_-removebg-preview.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/img/Logo_de_Estúdio_de_beleza_Rosa__4_-removebg-preview.png"
+        type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -28,206 +29,252 @@
 <!-- <body onload=" atualizarFeed()"> -->
 
 <body>
-    <h3 class="tituloGraficos">
-        <span id="tituloAquario1">SEU RESULTADO</span>
-    </h3>
-    <div class="graph">
-        <canvas id="grafico" style="z-index: 9990;"></canvas>
+
+    <div class="header" id="header">
+        <div class="container">
+            <ul class="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Sobre</a></li>
+            </ul>
+            <img class="logo" src="../assets/img/Logo de Estúdio de beleza Rosa (4).png">
+            <ul class="navbar">
+                <li><a href="./dashboard/dashboard.html">Perfil</a></li>
+                <li><a href="../Cruzadinha.html" class="responsivo">Jogo</a></li>
+            </ul>
+        </div>
     </div>
 
+
+    <div class="grafico-pizza">
+
+        <div class="graph1">
+            <h3 class="tituloGraficos">
+                <span id="tituloAquario1">SEU RESULTADO</span>
+            </h3>
+            <div class="graph">
+                <canvas id="grafico" style="z-index: 9990;"></canvas>
+            </div>
+        </div>
+
+        <div class="all">
+            <div id="img1"></div>
+             <p id="msg"></p>
+            <div id="idMemoryGame" class="display">
+                <div class="memoryGame">
+                    <div class="text-box">
+                        <button  id="comeco" class="botao">Começar Quiz</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+    <footer>
+        <p>
+            Copyright © Maria, Gyulia e Gabriella <3 | Todos os direitos reservados. </p>
+    </footer>
 
 </body>
 
 </html>
 
 <script>
+// Chart.defaults.font.weight = 'bold';
+  Chart.defaults.color = '#ffff';
+  Chart.defaults.font.family = 'Poppins';
+  Chart.defaults.font.size = 14;
+
+
+    var img = [
+        '<img class="img-Vetor" src="../assets/img/Design_sem_nome-removebg-preview (1).png" alt="">',
+        '<img class="img-Vetor" src="../assets/img/Design_sem_nome-removebg-preview.png" alt="">',
+        '<img class="img-Vetor" src="../assets/img/Design_sem_nome__1_-removebg-preview.png" alt="">'
+        
+    ]
+    //    m_usuario.innerHTML = sessionStorage.EMAIL_USUARIO;
+    // b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    // perso.innerHTML = sessionStorage.NOME_PERSONAGEM;
 
 
 
-// var persos = [
-//     '<img class="img-Vetor" src="../assets/img/rhys.jpg" alt="">',
-//     '<img class="img-Vetor" src="../assets/img/feyre3.jpg" alt="">',
-//     '<img class="img-Vetor" src="../assets/img/perso/Morrigan.jpg" alt="">',
-//     '<img class="img-Vetor" src="../assets/img/perso/amren.jpg" alt="">',
-//     '<img class="img-Vetor" src="../assets/img/perso/azriel.jpg" alt="">',
-//     '<img class="img-Vetor" src="../assets/img/perso/Cassian.jpg" alt="">',
-//     '<img class="img-Vetor" src="../assets/img/perso/nestha2.png" alt="">',
-//     '<img class="img-Vetor" src="../assets/img/perso/elain.png" alt="">'
-// ]
-//    m_usuario.innerHTML = sessionStorage.EMAIL_USUARIO;
-// b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-// perso.innerHTML = sessionStorage.NOME_PERSONAGEM;
+    var acerto = sessionStorage.ACERTO;
+
+
+    if (acerto >= 0 && acerto <= 5) {
+        img1.innerHTML= img[0]
+        msg.innerHTML ='Você tem que estudar mais'
+       
+    }
+    else if (acerto <= 10) {
+        img1.innerHTML= img[1]
+        msg.innerHTML ='Você está mediando, pode melhorar'
+       
+    }
+    else if (acerto <= 15) {
+        img1.innerHTML= img[2]
+        msg.innerHTML ='Parabéns você conhece muito'
+        idMemoryGame.style.display= 'flex';
+    }
 
 
 
-var acerto = sessionStorage.ACERTO;
+    var idUsuario = Number(sessionStorage.ID_USUARIO)
 
+    let proximaAtualizacao;
 
- if (acerto >= 0 && acerto <= 5) {
-    alert('Você tem que estudar mais')
-}
-else if (acerto <= 10) {
-    alert('Você está mediando mais estude mais')
-}
-else if (acerto <= 15) {
-    alert('Você é muito bom')
-}
+    window.onload = obterDadosGraficos2();
 
+    function obterDadosGraficos2() {
+        obterDadosGrafico2(idUsuario)
+        obterDadosGrafico2(idUsuario)
 
-
-var idUsuario = Number(sessionStorage.ID_USUARIO)
-
-let proximaAtualizacao;
-
-window.onload = obterDadosGraficos2();
-
-function obterDadosGraficos2() {
-    obterDadosGrafico2(idUsuario)
-    obterDadosGrafico2(idUsuario)
-    // obterDadosGrafico3()
-    // obterDadosGrafico(4)
-}
-
-// verificar_autenticacao();
+    }
 
 
 
-function exibirAquario2(idUsuario) {
-    let todosOsGraficos = document.getElementById("graficos")
 
-    for (i = 1; i <= todosOsGraficos.childElementCount; i++) {
-        // exibindo - ou não - o gráfico
-        let elementoAtual = document.getElementById(`grafico${i}`)
-        if (elementoAtual.classList.contains("display-block")) {
-            elementoAtual.classList.remove("display-block")
+
+    function exibirAquario2(idUsuario) {
+        let todosOsGraficos = document.getElementById("graficos")
+
+        for (i = 1; i <= todosOsGraficos.childElementCount; i++) {
+            // exibindo - ou não - o gráfico
+            let elementoAtual = document.getElementById(`grafico${i}`)
+            if (elementoAtual.classList.contains("display-block")) {
+                elementoAtual.classList.remove("display-block")
+            }
+            elementoAtual.classList.add("display-none")
+
+            // alterando estilo do botão
+            let btnAtual = document.getElementById(`btnAquario${i}`)
+            if (btnAtual.classList.contains("btn-pink")) {
+                btnAtual.classList.remove("btn-pink")
+            }
+            btnAtual.classList.add("btn-white")
         }
-        elementoAtual.classList.add("display-none")
+
+        // exibindo - ou não - o gráfico
+        let graficoExibir = document.getElementById(`grafico${idUsuario}`)
+        graficoExibir.classList.remove("display-none")
+        graficoExibir.classList.add("display-block")
 
         // alterando estilo do botão
-        let btnAtual = document.getElementById(`btnAquario${i}`)
-        if (btnAtual.classList.contains("btn-pink")) {
-            btnAtual.classList.remove("btn-pink")
-        }
-        btnAtual.classList.add("btn-white")
+        let btnExibir = document.getElementById(`btnAquario${idUsuario}`)
+        btnExibir.classList.remove("btn-white")
+        btnExibir.classList.add("btn-pink")
     }
 
-    // exibindo - ou não - o gráfico
-    let graficoExibir = document.getElementById(`grafico${idUsuario}`)
-    graficoExibir.classList.remove("display-none")
-    graficoExibir.classList.add("display-block")
+    // O gráfico é construído com três funções:
+    // 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
+    // 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
+    // 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
 
-    // alterando estilo do botão
-    let btnExibir = document.getElementById(`btnAquario${idUsuario}`)
-    btnExibir.classList.remove("btn-white")
-    btnExibir.classList.add("btn-pink")
-}
+    // Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
+    // para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
+    // A função *obterDadosGrafico* também invoca a função *plotarGrafico*
 
-// O gráfico é construído com três funções:
-// 1. obterDadosGrafico -> Traz dados do Banco de Dados para montar o gráfico da primeira vez
-// 2. plotarGrafico -> Monta o gráfico com os dados trazidos e exibe em tela
-// 3. atualizarGrafico -> Atualiza o gráfico, trazendo novamente dados do Banco
+    //     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
+    //     Para ajustar o "select", ajuste o comando sql em src/models
+    function obterDadosGrafico2(idUsuario) {
 
-// Esta função *obterDadosGrafico* busca os últimos dados inseridos em tabela de medidas.
-// para, quando carregar o gráfico da primeira vez, já trazer com vários dados.
-// A função *obterDadosGrafico* também invoca a função *plotarGrafico*
 
-//     Se quiser alterar a busca, ajuste as regras de negócio em src/controllers
-//     Para ajustar o "select", ajuste o comando sql em src/models
-function obterDadosGrafico2(idUsuario) {
 
-    // alterarTitulo2(idUsuario)
-
-    if (proximaAtualizacao != undefined) {
-        clearTimeout(proximaAtualizacao);
-    }
-
-    fetch(`/medidas/ultimas/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
-        if (response.ok) {
-            response.json().then(function (resposta) {
-                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                resposta.reverse();
-
-                plotarGrafico2(resposta, idUsuario);
-            });
-        } else {
-            console.error('Nenhum dado encontrado ou erro na API');
+        if (proximaAtualizacao != undefined) {
+            clearTimeout(proximaAtualizacao);
         }
-    })
-        .catch(function (error) {
-            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-        });
-}
 
-// Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
-// Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
-// A função *plotarGrafico* também invoca a função *atualizarGrafico*
-function plotarGrafico2(resposta, idUsuario) {
+        fetch(`/medidas/ultimas/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
 
-    console.log('iniciando plotagem do gráfico...');
-
-    // Criando estrutura para plotar gráfico - labels
-    let labels = ['erros', 'acertos'];
-
-    // Criando estrutura para plotar gráfico - dados
-    let dados = {
-        labels: labels,
-        datasets: [{
-            label: 'Quantidade de questões',
-            data: [],
-            fill: true,
-            borderColor: [
-                '#FF0000',
-                '#008000'
-            ],
-            backgroundColor: [
-            '#FF0000',
-                '#008000'
-            ],
-            tension: 0.1
-        }
-      
-        ]
-    };
-
-    console.log('----------------------------------------------')
-    console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
-    console.log(resposta)
-
-    // Inserindo valores recebidos em estrutura para plotar o gráfico
-    for (i = 0; i < resposta.length; i++) {
-        var registro = resposta[i];
-        // labels.push(registro.momento_grafico);
-        dados.datasets[0].data.push(registro.erros);
-        dados.datasets[0].data.push(registro.acertos);
-    }
-
-    console.log('----------------------------------------------')
-    console.log('O gráfico será plotado com os respectivos valores:')
-    console.log('Labels:')
-    console.log(labels)
-    console.log('Dados:')
-    console.log(dados.datasets)
-    console.log('----------------------------------------------')
-
-    // Criando estrutura para plotar gráfico - config
-    const config = {
-        type: 'pie',
-        data: dados,
-        options: {
-            animation: {
-                animateScale: true,
-                animateRotate: true
+                    plotarGrafico2(resposta, idUsuario);
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
             }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
+    // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
+    // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+    function plotarGrafico2(resposta, idUsuario) {
+
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = ['Erros', 'Acertos'];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Quantidade de questões',
+                data: [],
+                fill: true,
+                borderColor: [
+                    '	#DC143C',
+                    '#4169E1	'
+                ],
+                backgroundColor: [
+                   '	#DC143C',
+                    '#4169E1'
+                   
+                ],
+                tension: 0.1
+            }
+            
+
+            ]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            // labels.push(registro.momento_grafico);
+            dados.datasets[0].data.push(registro.erros);
+            dados.datasets[0].data.push(registro.acertos);
         }
-    };
 
-    // Adicionando gráfico criado em div na tela
-    let myChart5 = new Chart(
-        document.getElementById(`grafico`),
-        config
-    );
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
 
-    // setTimeout(() => atualizarGrafico5(idUsuario, dados, myChart5), 2000);
-}
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'pie',
+            data: dados,
+            options: {
+                animation: {
+                    animateScale: true,
+                    animateRotate: true
+                }
+            }
+        };
+
+        // Adicionando gráfico criado em div na tela
+        let myChart5 = new Chart(
+            document.getElementById(`grafico`),
+            config
+        );
+
+
+    }
 
 </script>
