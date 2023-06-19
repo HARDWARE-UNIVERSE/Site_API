@@ -95,7 +95,8 @@
         
     ]
     //    m_usuario.innerHTML = sessionStorage.EMAIL_USUARIO;
-    // b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    var nome = sessionStorage.NOME_USUARIO;
+
     // perso.innerHTML = sessionStorage.NOME_PERSONAGEM;
 
 
@@ -105,17 +106,17 @@
 
     if (acerto >= 0 && acerto <= 5) {
         img1.innerHTML= img[0]
-        msg.innerHTML ='Você tem que estudar mais'
+        msg.innerHTML =`<span class='color-txt'>${nome}<span>, você tem que estudar mais`
        
     }
     else if (acerto <= 10) {
         img1.innerHTML= img[1]
-        msg.innerHTML ='Você está mediando, pode melhorar'
+        msg.innerHTML =` <span class='color-txt'>${nome}<span>, você está mediando, pode melhorar`
        
     }
     else if (acerto <= 15) {
         img1.innerHTML= img[2]
-        msg.innerHTML ='Parabéns você conhece muito'
+        msg.innerHTML =`Parabéns <span class='color-txt'> ${nome}<span> você conhece muito`
         idMemoryGame.style.display= 'flex';
     }
 

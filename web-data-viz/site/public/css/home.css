@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
 /* Pré definindo a barra de rolagem do navegador - Google */
 ::-webkit-scrollbar {
     margin-right: 30px;
@@ -170,7 +172,7 @@ body {
 
 .texto-banner {
     color:#a14fc6;
-    width: 44%; 
+    width: 41%; 
     margin-top: 45px;
     margin-bottom: 170px;
     margin-left: -22%;

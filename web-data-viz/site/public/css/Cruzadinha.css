@@ -147,6 +147,7 @@ width:45vw;
     width: 20vw;
     height: 50px; 
     color: #01090e;
+    cursor: pointer;
 }
 .botao{
     width: 20vw;
@@ -216,7 +217,9 @@ width:45vw;
     align-items: center;  
     flex-direction: column; 
 }
-
+#div_perguntas{
+   text-align: center;
+}
 
 
 
