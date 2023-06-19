@@ -88,21 +88,21 @@ function final() {
 
 
     if (cartaFinal == 6) {
-        setTimeout(() => {
-            window.location= '../indexGame.html'
-        }, 1000);
+        // setTimeout(() => {
+        //     window.location= '../indexGame.html'
+        // }, 1000);
     }
 }
-function timer(){
-interval = setInterval(() =>
-{segundo-=1; 
-timerCont.innerHTML = segundo;
+// function timer(){
+// interval = setInterval(() =>
+// {segundo-=1; 
+// timerCont.innerHTML = segundo;
 
-if(segundo<=0){
-    clearInterval(interval);
+// if(segundo<=0){
+//     clearInterval(interval);
 
- window.location= '../indexGame.html'
-}
-},1000);
+//  window.location= '../indexGame.html'
+// }
+// },1000);
 
-}
+// }
