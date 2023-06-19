@@ -1,6 +1,41 @@
-
-/*importação de fonte do google fontes com varias especuras diferentes*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* Pré definindo a barra de rolagem do navegador - Google */
+::-webkit-scrollbar {
+    margin-right: 30px;
+    background-color: black;
+    width: 0.8vw;
+}
+
+::-webkit-scrollbar-button{
+    background-color: black;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #8c66d2;
+    border-radius: 12px;
+
+}
+
+/* //////////////////// */
+
+/* Pré definindo a barra de rolagem do navegador - Opera */
+::-o-scrollbar {
+    margin-right: 30px;
+    background-color: black;
+    width: 0.8vw;
+}
+
+::-o-scrollbar-button{
+    background-color: black;
+}
+
+::-o-scrollbar-thumb{
+    background-color: #8c66d2;
+    border-radius: 12px;
+
+}
+/*importação de fonte do google fontes com varias especuras diferentes*/
+
 
 body {
 
@@ -556,7 +591,22 @@ input{
 /* FIM DO CONTAINER DO LOGIN */
 
 
-
+footer {
+    background-color:  #8c66d2;
+    color: #ffffff;
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+  }
+  
+  footer p {
+    margin: 10px 0;
+   
+  }
 
 
 

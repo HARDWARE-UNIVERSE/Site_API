@@ -26,7 +26,7 @@
             </ul>
             <img class="logo" src="./assets/img/Logo de Estúdio de beleza Rosa (4).png">
             <ul class="navbar">
-                <li><a href="index.html">Cadastro</a></li>
+                <li><a href="#formCadastro">Cadastro</a></li>
                 <li><a href="clube.html" class="responsivo" onclick="clickClube()">Jogo</a></li>
             </ul>
         </div>
@@ -116,9 +116,10 @@
         </div>
     </div>
 
-    <div class="copyRight">
-        <h4> Copyright © Maria, Gyulia e Gabriella <3 | Todos os direitos reservados. </h4>
-    </div>
+    <footer>
+        <p>
+            Copyright © Maria, Gyulia e Gabriella <3 | Todos os direitos reservados. </p>
+    </footer>
 
 
 </body>
@@ -180,7 +181,7 @@
                 alert("Cadastro realizado com sucesso!");
 
                 setTimeout(() => {
-                    window.location = "";
+                   login()
                 }, "2000")
 
                 // limparFormulario();
