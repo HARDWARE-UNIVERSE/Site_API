@@ -33,13 +33,13 @@
     <div class="header" id="header">
         <div class="container">
             <ul class="navbar">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="index.html">Sobre</a></li>
+                <li><a href="../indexPgnUsuario.html">Página Inicial</a></li>
+                <li><a href="../Cruzadinha.html">Quiz</a></li>
             </ul>
             <img class="logo" src="../assets/img/Logo de Estúdio de beleza Rosa (4).png">
             <ul class="navbar">
-                <li><a href="./dashboard/dashboard.html">Perfil</a></li>
-                <li><a href="../Cruzadinha.html" class="responsivo">Jogo</a></li>
+                <li><a href="">xx</a></li>
+                <li><a href="../index.html">Sair</a></li>
             </ul>
         </div>
     </div>
@@ -62,7 +62,7 @@
             <div id="idMemoryGame" class="display">
                 <div class="memoryGame">
                     <div class="text-box">
-                      <a href="../jogo/indexGame.html"><button  id="comeco"  class="botao">Começar Quiz</button></a>
+                      <a href="../jogo/indexGame.html"><button  id="comeco"  class="botao">Desbloquear Jogo Surpresa</button></a>
 
                     </div>
                 </div>
@@ -106,17 +106,17 @@
 
     if (acerto >= 0 && acerto <= 5) {
         img1.innerHTML= img[0]
-        msg.innerHTML =`<span class='color-txt'>${nome}<span>, você tem que estudar mais`
+        msg.innerHTML =`<span class='color-txt'>${nome}<span>, você tem que estudar mais.`
        
     }
     else if (acerto <= 10) {
         img1.innerHTML= img[1]
-        msg.innerHTML =` <span class='color-txt'>${nome}<span>, você está mediando, pode melhorar`
+        msg.innerHTML =` <span class='color-txt'>${nome}<span>, você está mediano(a), pode melhorar...`
        
     }
     else if (acerto <= 15) {
         img1.innerHTML= img[2]
-        msg.innerHTML =`Parabéns <span class='color-txt'> ${nome}<span> você conhece muito`
+        msg.innerHTML =`Parabéns <span class='color-txt'> ${nome}<span> você conhece muito sobre hardware!`
         idMemoryGame.style.display= 'flex';
     }
 
