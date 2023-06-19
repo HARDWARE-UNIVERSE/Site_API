@@ -13,6 +13,7 @@
         type="image/x-icon">
     <link rel="shortcut icon" href="" type="image/x-icon">
     <link rel="stylesheet" href="css/home.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 </head>
@@ -26,8 +27,8 @@
             </ul>
             <img class="logo" src="./assets/img/Logo de Estúdio de beleza Rosa (4).png">
             <ul class="navbar">
-                <li><a href="#formCadastro">Cadastro</a></li>
-                <li><a href="clube.html" class="responsivo" onclick="clickClube()">Jogo</a></li>
+                <li onclick="cadastro()"><a href="#formCadastro">Cadastro</a></li>
+                <li onclick="login()"><a href="#formLogin">Login</a></li>
             </ul>
         </div>
     </div>
@@ -126,6 +127,10 @@
 
 </html>
 <script>
+ 
+
+
+
     function cadastro() {
         formLogin.style.display = "none";
         formCadastro.style.display = "block";
@@ -150,8 +155,18 @@
             emailVar == "" ||
             senhaVar == "") {
             // cardErro.style.display = "block"
-            alert("Mensagem de erro para todos os campos em branco");
-
+            
+            Swal.fire({
+  position: 'top',
+  icon: 'error',
+  title: 'Campos vazios',
+  background:'black',
+  color: 'white',
+  confirmButtonColor: '#8c66d2',
+  text: 'ERRO - Preencha todos os campos para fazer o login.',
+  confirmButtonText: 'Voltar',
+ 
+})
             return false;
         } 
         
@@ -178,7 +193,16 @@
             if (resposta.ok) {
                 // cardErro.style.display = "block";
 
-                alert("Cadastro realizado com sucesso!");
+                Swal.fire({
+  position: 'top',
+  icon: 'sucess',
+  title: 'Cadastro Realizado com sucesso!',
+  background:'black',
+  color: 'white',
+  text: 'Você será redirecionado para a área de login.',
+  time:1000
+ 
+})
 
                 setTimeout(() => {
                    login()
@@ -203,8 +227,18 @@
         var senhaLVar = senha_input_login.value;
 
         if (emailLVar == "" || senhaLVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+          
+            Swal.fire({
+  position: 'top',
+  icon: 'error',
+  title: 'Campos vazios',
+  background:'black',
+  color: 'white',
+  confirmButtonColor: '#8c66d2',
+  text: 'ERRO - Preencha todos os campos para fazer o login.',
+  confirmButtonText: 'Voltar',
+ 
+})
             // finalizarAguardar();
             // return false;
         }
