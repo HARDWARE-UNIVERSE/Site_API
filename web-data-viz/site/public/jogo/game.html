@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="memoria.css">
+    <!-- <script src="./js/funcoes.js"></script> -->
+    <link rel="shortcut icon" href="../assets/img/Logo_de_Estúdio_de_beleza_Rosa__4_-removebg-preview.png" type="image/x-icon">
+
+</head>
+<body onload="gerarCarta()">
+    <div class="header">
+        <div class="container">
+            <ul class="navbar">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+            </ul>
+            <img class="logo" src="../assets/img/Logo de Estúdio de beleza Rosa (4).png">
+            <ul class="navbar">
+                <li><a href="index.html">Cadastro</a></li>
+                <li><a href=" " class="responsivo">Jogo</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="temporizador">
+        <h2>TEMPO</h2>
+        <img src="img/timer icon.png">
+            <span style="font-size: 2em; color: white;" id="span_tempo">00:00</span>
+    </div>
+
+    <!-- <div class="usuario">
+        <img src="img/caixaIcon.png">
+        <p><span id="b_usuario"></span></p>
+    </div> -->
+
+
+<div class="baralho">
+    <div class="cartas">
+        <img id="c1" onclick="R1()" src="img/verso.png">
+        <img id="c2" onclick="R2()" src="img/verso.png">
+        <img id="c3" onclick="R3()" src="img/verso.png">
+        <img id="c4" onclick="R4()" src="img/verso.png">
+        <img id="c5" onclick="R5()" src="img/verso.png">
+        <img id="c6" onclick="R6()" src="img/verso.png">
+        <img id="c7" onclick="R7()" src="img/verso.png">
+        <img id="c8" onclick="R8()" src="img/verso.png">
+    </div>
+</div>
+
+    <div class="footer"></div>
+
+</body>
+</html>
+
+<script>
+
+// window.onload= jogo();
+
+var baralho=[
+'img/Carta Ssd.png',
+'img/Carta CPU.png',
+'img/Carta Perifericos.png',
+'img/Carta Cooler.png'
+ ]
+
+ function gerarCarta(){
+
+    var cartaAleatoria= Math.random * baralho.lenght
+ }
+ 
+
+
+</script>
