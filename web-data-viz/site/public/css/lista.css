@@ -151,19 +151,19 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 0%;
+    margin-top: 20%;
     padding: 40px;
     border-radius: 20px;
     text-align: center; 
     margin-bottom: 0%;
-    color: #E3DCCD;
-    margin-left: -20px;
+    color: #000000;
+    margin-left: 2%;
     margin-bottom: 10%;
 }
 
 .botao{
-    background-color: #767066;
-    color: #E3DCCD;
+    background-color: #8c66d2;
+    color: black;
     width: 400px;
     height: 100px;
     border-style: none; /*tira a estilização automatica do botão do html*/
@@ -182,3 +182,86 @@ body {
     text-decoration: none;
     font-weight: normal;
 }
+
+.boxes .box1 {
+    width: 500px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #cea5e1;
+    padding: 40px;
+    border-radius: 20px;
+    /* margin: 20px 5px 20px 5px;  */
+    text-align: center; 
+    margin-bottom: 5%;
+    color: black;
+    margin-left: 26%;
+    margin-top: 20%;
+}
+
+.box1:hover {
+    transition: 0.5s;
+    box-shadow: 0 16px 40px 0 rgba(0,0,0,0.2);
+}
+
+.timer{
+    font-size: 30px;
+    margin-left: 90%;
+    margin-top: 0%;
+}
+.botaoRegistrar{
+    background-color: #8c66d2;
+    color: black;
+    width: 200px;
+    height: 30px;
+    border-style: none; /*tira a estilização automatica do botão do html*/
+    border-radius: 100px 300px 100px 300px;
+    cursor: pointer; /*muda a imagem do cursor quando passar pelo botão*/
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    display:inline-block;
+    align-items: center;
+    justify-content: center; 
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.inputJog{
+    background-color: #8c66d247;
+    color: #000000;
+    width: 150px;
+    height: 25px;
+    border-radius: 300px ;
+    margin-top: 2%;
+}
+
+button:hover{
+    /*'animação' do botão quando o mouse passar*/
+    box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+    background-color: #cea5e1;
+    color: white;
+    transition-duration: 0.3s; /*duração da transição da animação*/
+}
+/* INICIO DO CARD DA INSERÇÃO DE JOGADORES*/
+
+
+
+footer {
+    background-color:  #8c66d2;
+    color: #ffffff;
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+  }
+  
+  footer p {
+    margin: 10px 0;
+   
+  }

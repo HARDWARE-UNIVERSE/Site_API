@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Game</title>
-    <link rel="stylesheet" href="../css/home.css">
-    <link rel="stylesheet" href="memoria.css">
+    <link rel="stylesheet" href="../css/lista.css">
     <script src="./js/funcoes.js"></script>
     <link rel="shortcut icon" href="../assets/img/Logo_de_Estúdio_de_beleza_Rosa__4_-removebg-preview.png" type="image/x-icon">
 
@@ -38,30 +37,27 @@
         <div class="box1" id="box1Div" style="display: none;">
             <span class="timer" id="span_tempo"></span><br>
             <p> Converta os 5 números abaixo em binário:</p>
-            7: <input id="input_1" style="color: black;"><br>
-            16: <input id="input_2" style="color: black;"><br>
-            24: <input id="input_3" style="color: black;"><br>
-            33: <input id="input_4" style="color: black;"><br>
-            55: <input id="input_5" style="color: black;"><br>
-             <button class="botaoRegistrar" onclick="registrar()">Registrar Jogadores</button>
-            <div id="msg"></div><!-- ONDE APARECEM AS IMAGENS INDIVIDUAIS DOS JOGADORES E OS NOMES -->
-        </div>
-
-        <!-- CARD DA GALERIA DOS ESCALADOS-->
-        <div class="box2" id="box2Div" style="display: none;">
-            <p> GALERIA DOS ESCALADOS:</p>
-            <div id="imagensJogadores"></div>
+            7: <input id="input_1" class="inputJog"><br>
+            16: <input id="input_2" class="inputJog"><br>
+            24: <input id="input_3" class="inputJog"><br>
+            33: <input id="input_4" class="inputJog"><br>
+            55: <input id="input_5" class="inputJog"><br>
+             <button class="botaoRegistrar" onclick="registrar()">Registrar Conversões</button>
+            <div id="msg" style="margin-top: 2%;"></div><!-- ONDE APARECEM AS IMAGENS INDIVIDUAIS DOS JOGADORES E OS NOMES -->
         </div>
 
     </div>
+
+    <footer>
+        <p>
+            Copyright © Maria, Gyulia e Gabriella <3 | Todos os direitos reservados. </p>
+    </footer>
 </body>
 
 </html>
 <script>
 
     var acertos=0;
-    var listaGostar = [];
-    var listaJogadores = [];
     var segundo = 50;   // Define a contagem iniciando de 50.
     var interval = null;  // Variável usada para armazenar a referência ao intervalo do temporizador.
     span_tempo.innerHTML = segundo; // Atualiza o conteúdo do elemento para exibir o valor atual da variável "segundo".
@@ -73,7 +69,7 @@
 
             if (segundo <= 0) {
                 clearInterval(interval);
-                alert("O tempo acabou e você acertou " + listaJogadores.length + " jogadores de 30 participantes do elenco!");
+                alert("O tempo acabou e você acertou " + acertos + " conversões!");
             }
         }, 1000)
 
@@ -107,7 +103,9 @@
         }
         
 
-        alert("Voce acertou " + acertos)
+        msg.innerHTML= `Você acertou ${acertos} conversões! Parabéns pela dedicação.`
+
+        clearInterval(interval);
       
     }
     
