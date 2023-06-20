@@ -1,0 +1,33 @@
+#fundo{
+margin-left: 20%;
+margin-top: 270px;
+cursor: pointer;
+}
+
+#mouse{
+    height: 45px;
+    position: absolute;
+    margin-top: 660px;
+    margin-left: -170px;
+    cursor: pointer;
+}
+
+h1{
+    margin-top: 130px;
+    color: white;
+    position: absolute;
+    margin-left: 25%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 600px;
+    text-align: center;
+}
+
+#span_tempo{
+    color: white;
+    font-size: 22px;
+}
+
+.game{
+    margin-top: 80px;
+    margin-left: 3%;
+}

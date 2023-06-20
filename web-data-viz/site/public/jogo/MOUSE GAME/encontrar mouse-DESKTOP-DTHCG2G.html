@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPU GAME</title>
+    <link rel="stylesheet" href="../../css/home.css">
+    <link rel="shortcut icon" href="../../assets/img/Logo_de_Estúdio_de_beleza_Rosa__4_-removebg-preview.png" type="image/x-icon">
+    <link rel="stylesheet" href="mouse.css">
+
+</head>
+<body onload="iniciar()">
+
+    <div class="header">
+        <div class="container">
+            <ul class="navbar">
+                <li><a href="../../indexPgnUsuario.html">Página Inicial</a></li>
+                <li><a href="../Cruzadinha.html">Quiz</a></li>
+            </ul>
+            <img class="logo" src="../../assets/img/Logo de Estúdio de beleza Rosa (4).png">
+            <ul class="navbar">
+                <li><a href="../dashboard/dashboard.html">Perfil</a></li>
+                <li><a href="../index.html" class="responsivo">Sair</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="game">
+        <span id="span_tempo">20</span>
+        <h2>Encontre a CPU em meio a esse cenário</h2>
+        <img onclick="achou()" id="fundo" src="fundoBaguncado.png">
+        <img src="mouse.png" id="mouse">
+    </div>
+    
+</body>
+</html>
+
+<script>
+  var segundo = 20;
+  var tempoPercorrido=0;
+  span_tempo.innerHTML = segundo;
+
+  var interval = null;
+
+  function iniciar() {
+    headerGame.innerHTML = " ";
+
+    //exibição de alert caso o usuario não encontre o xaveco
+    // cria um intervalo para exibir o alerta e dentro da validacao (se segundo for <= 0) ele limpa o intervalo 
+
+    interval = setInterval(() => {
+      segundo -= 1;
+      span_tempo.innerHTML = segundo;
+      if (segundo <= 0) {
+        clearInterval(interval);
+
+        alert("O tempo acabou, recarregue a página !");
+        window.location= 
+      }
+    }, 1000);
+  }
+
+  function achou() {
+    clearInterval(interval);
+
+
+    tempoPercorrido = 60 - segundo;
+
+    alert(`Achou, levou ${tempoPercorrido} segundo !`);
+
+  }
+
+</script>
