@@ -260,7 +260,14 @@ body {
     text-align: center; 
 }
 
-   
+ .jogo-mouse{
+    /* display: none;
+     */
+     width: 100%;
+     height: 50vh;
+     background-color: #8c66d2;
+     
+ }  
 
 
 
