@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Game</title>
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="memoria.css">
+    <script src="./js/funcoes.js"></script>
+    <link rel="shortcut icon" href="../assets/img/Logo_de_Estúdio_de_beleza_Rosa__4_-removebg-preview.png" type="image/x-icon">
+
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <ul class="navbar">
+                <li><a href="../indexPgnUsuario.html">Página Inicial</a></li>
+                <li><a href="../Cruzadinha.html">Quiz</a></li>
+            </ul>
+            <img class="logo" src="../assets/img/Logo de Estúdio de beleza Rosa (4).png">
+            <ul class="navbar">
+                <li><a href="../dashboard/dashboard.html">Perfil</a></li>
+                <li><a href="../index.html" class="responsivo">Sair</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- CARD DO BOTÃO INICIAR GAME -->
+    <div class="botao-div" id="botaoDiv" style="display: block;">
+        <button class="botao" onclick="iniciar()">Iniciar GAME!</button>
+    </div>
+
+    <!-- CARD GERAL -->
+    <div class="boxes">
+
+        <!-- CARD ONDE O USUÁRIO INSERE OS JOGADORES -->
+        <div class="box1" id="box1Div" style="display: none;">
+            <span class="timer" id="span_tempo"></span><br>
+            <p> Converta os 5 números abaixo em binário:</p>
+            7: <input id="input_1" style="color: black;"><br>
+            16: <input id="input_2" style="color: black;"><br>
+            24: <input id="input_3" style="color: black;"><br>
+            33: <input id="input_4" style="color: black;"><br>
+            55: <input id="input_5" style="color: black;"><br>
+             <button class="botaoRegistrar" onclick="registrar()">Registrar Jogadores</button>
+            <div id="msg"></div><!-- ONDE APARECEM AS IMAGENS INDIVIDUAIS DOS JOGADORES E OS NOMES -->
+        </div>
+
+        <!-- CARD DA GALERIA DOS ESCALADOS-->
+        <div class="box2" id="box2Div" style="display: none;">
+            <p> GALERIA DOS ESCALADOS:</p>
+            <div id="imagensJogadores"></div>
+        </div>
+
+    </div>
+</body>
+
+</html>
+<script>
+
+    var acertos=0;
+    var listaGostar = [];
+    var listaJogadores = [];
+    var segundo = 50;   // Define a contagem iniciando de 50.
+    var interval = null;  // Variável usada para armazenar a referência ao intervalo do temporizador.
+    span_tempo.innerHTML = segundo; // Atualiza o conteúdo do elemento para exibir o valor atual da variável "segundo".
+
+    function iniciar() {
+        interval = setInterval(() => {// Inicia um intervalo de tempo que será executado a cada 1 segundo.
+            segundo -= 1; // Diminui o valor da variável "segundo" em 1.
+            span_tempo.innerHTML = segundo;// Atualiza a div.
+
+            if (segundo <= 0) {
+                clearInterval(interval);
+                alert("O tempo acabou e você acertou " + listaJogadores.length + " jogadores de 30 participantes do elenco!");
+            }
+        }, 1000)
+
+        botaoDiv.style.display = "none";
+        box1Div.style.display = "block";
+    };
+
+    function registrar() {
+
+      
+        var num1= input_1.value;
+        var num2= input_2.value;
+        var num3= input_3.value;
+        var num4= input_4.value;
+        var num5= input_5.value;
+        
+        if (num1 == 111){
+            acertos+=1
+        }
+        if (num2 == 10000){
+            acertos+=1
+        }
+        if(num3 == 11000){
+            acertos+=1
+        }
+        if (num4 == 100001){
+            acertos+=1
+        }
+        if (num5 == 110111){
+            acertos+=1
+        }
+        
+
+        alert("Voce acertou " + acertos)
+      
+    }
+    
+</script>
