@@ -70,8 +70,8 @@ body {
 
 .container1 .imgUsu img{
     margin-left: 12%; 
-    margin-top: -25%;
-    width: 700px;
+    margin-top: 5%;
+    width: 800px;
 }
 
 .containerFim{
@@ -183,7 +183,7 @@ body {
 .texto-banner {
     color:#a14fc6;
     width: 45%; 
-    margin-top: 35px;
+    margin-top: 45px;
     margin-bottom: 170px;
     margin-left: -22%;
     text-align: justify;
