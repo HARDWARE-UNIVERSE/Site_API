@@ -24,7 +24,13 @@ h1{
 
 #span_tempo{
     color: white;
-    font-size: 22px;
+    font-size: 40px;
+    position:absolute;
+    margin-top:-300px;
+    margin-left: 8%;
+    border: 2px solid white;
+    width: 90px;
+    text-align: center;
 }
 
 .game{
