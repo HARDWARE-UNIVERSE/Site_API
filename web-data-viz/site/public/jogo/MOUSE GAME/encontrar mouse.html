@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../css/home.css">
     <link rel="shortcut icon" href="../../assets/img/Logo_de_Estúdio_de_beleza_Rosa__4_-removebg-preview.png" type="image/x-icon">
     <link rel="stylesheet" href="mouse.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 <body onload="iniciar()">
@@ -31,7 +32,7 @@
         <img onclick="achou()" src="mouse.png" id="mouse">
     </div>
     <span id="span_tempo"></span>
-
+<a href=""></a>
     
 </body>
 </html>
@@ -51,9 +52,18 @@ var segundo = 20;
       span_tempo.innerHTML = segundo;
       if (segundo <= 0) {
         clearInterval(interval);
-
-        alert("O tempo acabou, tente novamente mais tarde!");
-        window.location='encontrar mouse.html'
+        Swal.fire({
+  position: 'top',
+  icon: 'error',
+  title: 'O tempo acabou',
+  background:'black',
+  color: 'white',
+  text: 'O tempo acabou, tente novamente mais tarde!',
+  confirmButtonColor: '#8c66d2',
+  confirmButtonText: `<a href="encontrar mouse.html">Voltar</a>`,
+})
+        
+       
       }
     }, 1000);
   }
@@ -64,9 +74,18 @@ var segundo = 20;
 
 
     tempoPercorrido = 20 - segundo;
+    Swal.fire({
+  position: 'top',
+  icon: 'sucess',
+  title: 'Você Consegui!!!',
+  background:'black',
+  color: 'white',
+  text:`Você encontrou e levou ${tempoPercorrido} segundo !`,
+  confirmButtonColor: '#8c66d2',
+  confirmButtonText: `<a href="../../indexPgnUsuario.html">Voltar</a>`,
+})
 
-    alert(`Você encontrou e levou ${tempoPercorrido} segundo !`);
-    window.location= '../../index.html'
+  
 
   }
 

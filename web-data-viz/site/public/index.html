@@ -270,8 +270,9 @@
 
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
+                    localStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.idUsuario;
-
+                    localStorage.ID_USUARIO = json.idUsuario;
                     setTimeout(function () {
                         window.location = "./indexPgnUsuario.html";
                     }, 1000); // apenas para exibir o loading
@@ -280,7 +281,18 @@
 
             } else {
 
-                alert("Houve um erro ao tentar realizar o login, verifique os dados inseridos!");
+                Swal.fire({
+  position: 'top',
+  icon: 'error',
+  title: 'Houve um erro',
+  background:'black',
+  color: 'white',
+  confirmButtonColor: '#8c66d2',
+  text: 'Houve um erro ao tentar realizar o login, verifique os dados inseridos!',
+  confirmButtonText: 'Voltar',
+ 
+})
+                
 
                 resposta.text().then(texto => {
                     // console.error(texto);

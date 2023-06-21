@@ -57,7 +57,7 @@ function unflipCards() {
         secondCard.classList.remove('flip');
 
         resetBoard();
-    }, 1500); 
+    }, 1000); 
 }
 
 //função que reseta o tabuleiro
@@ -101,7 +101,7 @@ timerCont.innerHTML = segundo;
 if(segundo<=0){
     clearInterval(interval);
 
- window.location= '../indexGame.html'
+ window.location= '../lista.html'
 }
 },1000);
 

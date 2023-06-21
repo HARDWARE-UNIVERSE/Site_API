@@ -28,7 +28,7 @@
 
 <!-- <body onload=" atualizarFeed()"> -->
 
-<body>
+<body onload="verificar(),obterDadosGraficos2()">
 
     <div class="header" id="header">
         <div class="container">
@@ -96,14 +96,16 @@
     ]
     //    m_usuario.innerHTML = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
-
+    var nome = localStorage.NOME_USUARIO;
     // perso.innerHTML = sessionStorage.NOME_PERSONAGEM;
 
 
 
     var acerto = sessionStorage.ACERTO;
+    var acerto = localStorage.ACERTO;
+    // window.onload = verificar();
 
-
+function verificar() {
     if (acerto >= 0 && acerto <= 5) {
         img1.innerHTML= img[0]
         msg.innerHTML =`<span class='color-txt'>${nome}<span>, você tem que estudar mais.`
@@ -118,15 +120,17 @@
         img1.innerHTML= img[2]
         msg.innerHTML =`Parabéns <span class='color-txt'> ${nome}<span> você conhece muito sobre hardware!`
         idMemoryGame.style.display= 'flex';
-    }
+    }  
+}
+    
 
 
 
-    var idUsuario = Number(sessionStorage.ID_USUARIO)
+    var idUsuario = Number(localStorage.ID_USUARIO)
 
     let proximaAtualizacao;
 
-    window.onload = obterDadosGraficos2();
+    
 
     function obterDadosGraficos2() {
         obterDadosGrafico2(idUsuario)

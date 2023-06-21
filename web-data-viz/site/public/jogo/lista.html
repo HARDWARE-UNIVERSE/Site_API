@@ -31,7 +31,7 @@
     </div>
 
     <!-- CARD GERAL -->
-    <div class="boxes">
+    <div id="box" class="boxes">
 
         <!-- CARD ONDE O USUÁRIO INSERE OS JOGADORES -->
         <div class="box1" id="box1Div" style="display: none;">
@@ -43,11 +43,19 @@
             <span id="number4">33: </span> <input id="input_4" class="inputJog"><br>
             <span id="number5">55: </span> <input id="input_5" class="inputJog"><br>
              <button class="botaoRegistrar" onclick="registrar()">Registrar Conversões</button>
-            <div id="msg" style="margin-top: 2%;"></div><!-- ONDE APARECEM AS IMAGENS INDIVIDUAIS DOS JOGADORES E OS NOMES -->
+            <div id="msg1" style="margin-top: 2%;"></div><!-- ONDE APARECEM AS IMAGENS INDIVIDUAIS DOS JOGADORES E OS NOMES -->
         </div>
 
     </div>
+    
 
+    <div id="jogoMouse" style="display: none;">
+        <div class="jogo">
+            <p id="msg2" ></p>
+            <button class="botao" onclick="irPara()">Iniciar Novo GAME!</button>
+        </div>
+        
+    </div>
     <footer>
         <p>
             Copyright © Maria, Gyulia e Gabriella <3 | Todos os direitos reservados. </p>
@@ -102,11 +110,47 @@
             acertos+=1
         }
         
+        
 
-        msg.innerHTML= `Você acertou ${acertos} conversões! Parabéns pela dedicação.`
-
+        setTimeout(() => {
+        sessionStorage.ACERTOS_LISTA = Number (acertos);
         clearInterval(interval);
+            ver() 
+        }, 100);
+      
+       
       
     }
+
+
+    function ver() {
+    
+    var nome = sessionStorage.NOME_USUARIO;
+      var acertos = sessionStorage.ACERTOS_LISTA; 
+      console.log(acertos)
+     
+if (acertos >=0 && acertos <=3) {
+    msg1.innerHTML= `Você acertou ${acertos}/5! Parabéns pela dedicação.`
+}
+
+      if (acertos == 4 || acertos == 5) {
+        box.style.display = 'none';
+        jogoMouse.style.display = 'block';
+        msg2.innerHTML =` Você acertou ${acertos}/5!<br> Parabéns ${nome}!! você liberou o último jogo do site.`;
+       
+       
+      }
+
+
+
+
+}
+
+function irPara(){
+setTimeout(() => {
+            window.location ='MOUSE GAME/encontrar mouse.html'
+        }, 1000);
+}
+ 
     
 </script>
